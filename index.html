@@ -22,15 +22,28 @@ body{
   }
 
 </style>
-
-<link rel="stylesheet" href="script.js">
+<link rel="stylesheet" href="style.css">
   </head>
+
+
   <body>
  
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-u1OknCvxWvY5kfmNBILK2hRnQC3Pr17a+RTT6rIHI7NnikvbZlHgTPOOmMi466C8" crossorigin="anonymous">
 
       //Initialize your slider in your script file
     </script>
+        <script>
+          let a;
+          let date;
+          let time;
+          const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+          setInterval(() => {
+              a = new Date(); 
+              date = a.toLocaleDateString(undefined, options);
+              time = a.getHours() + ':' + a.getMinutes() + ':' + a.getSeconds();
+              document.getElementById('time').innerHTML = time + "<br>on " + date;
+          }, 1000);
+      </script>
 
 
 <!-- NAVIGARTION BAR START -->
@@ -59,13 +72,13 @@ body{
               </li>
 
             </ul>
-            <form class="d-flex" role="search">
-              <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-              <button class="btn btn-danger" type="submit">Search</button>
+            <form class="d-flex" role="search"id="search-form-bar">
+              <input class="form-control me-2 "  id="search-input-bar" type="search" placeholder="Search your city" aria-label="Search">
+              <button class="btn btn-danger" id="search-button-bar" type="submit">Search</button>
             </form>
             <br><hr>
             <!-- login and signup buttons -->
-            <div class="mx-2 ">
+            <!-- <div class="mx-2 ">
               <button class="btn btn-danger" data-bs-toggle="modal" data-bs-target="#loginmodal">login
               </button>
 
@@ -74,38 +87,70 @@ body{
               </button>
             
   
-            </div>
+            </div> -->
           </div>
 
         </div>
       </nav>
-      <br><br><hr>
-      <!-- slide -->
-      <div class="container">
-      <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
-        <div class="carousel-inner">
-          <div class="carousel-item active">
-            <img src="https://source.unsplash.com/1200x400?morning" class="d-block w-100" alt="...">
-          </div>
-          <div class="carousel-item">
-            <img src="https://source.unsplash.com/1200x400?noon" class="d-block w-100" alt="...">
-          </div>
-          <div class="carousel-item">
-            <img src="https://source.unsplash.com/1200x400?night" class="d-block w-100" alt="...">
-          </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
-          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
-          <span class="carousel-control-next-icon" aria-hidden="true"></span>
-          <span class="visually-hidden">Next</span>
-        </button>
+      <!-- weather navbar -->
+ <!-- //////////////////////////////////////////////////////////////////////////////////////////////////// -->
+      <div>
+        
+        <a class="weatherwidget-io" href="https://forecast7.com/en/20d5978d96/india/" data-label_1="INDIA" data-label_2="WEATHER" data-theme="original">INDIA WEATHER</a> 
+        <script>
+      !function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src='https://weatherwidget.io/js/widget.min.js';fjs.parentNode.insertBefore(js,fjs);}}(document,'script','weatherwidget-io-js');
+      </script>
+    
       </div>
-    </div>
-    <hr>
-      <!-- slide end -->
+      <hr>
+<!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////-->
+      <!-- weatherwidget -->
+
+      <div class="row">
+        <div class="col-sm">
+          
+          <main id="app-container">
+            <form class="d-flex" role="search"id="search-form">
+              <input class="form-control me-2 "  id="search-input" type="search" placeholder="Search your city" aria-label="Search">
+              <button class="btn btn-outline-dark" id="search-button" type="submit">Search</button>
+            </form>
+    
+            
+            
+            <div id="location">
+                  <p>Delhi</p>
+              </div>
+                  <div id="temp">
+                      <img id="temp-icon" src="./icons/sun.svg" alt="">
+                      <p><span id="temp-value">23</span> <span id="temp-unit" >&#176c</span> </p>
+                  </div>
+    
+                  <div id="climate">
+                      <p>haze</p>
+                  </div>
+    
+     
+          </main>
+        </div>
+        <div class="col-sm">
+           <hr class="my-4">
+          <div class="container my-4">
+            <div class="jumbotron">
+                <h1 class="display-4">Current Time <br><span id="time"></span></h1>
+                <p class="lead">We're determined to solve your biggest challenges with predicting the weather.
+               .</p>
+                <hr class="my-4">
+
+            </div>
+        </div>
+        </div>
+      </div>
+      
+
+      
+<hr>
+      <!-- STARTS FROM HERE -->
+ <!-- //////////////////////////////////////////////////////////////////////////////////////////////////////-->
 
       <!-- cards starts -->
       <div id="cards" class="container-fluid text-center">
@@ -114,7 +159,7 @@ body{
         <div class="col">
             <div class="container text-center">
                 <div class="card border-primary mb-3" style="width: 18rem;">
-                 <img src="https://source.unsplash.com/500x400?morning" class="card-img-top img-fluid" alt="...">
+                 <img src="morning.jpg" class="card-img-top img-fluid" alt="...">
                  <div class="card-body ">
                    <h5 class="card-title">Morning</h5>
                    <p class="card-text">
@@ -124,7 +169,7 @@ body{
                         'I believe,' three times."
                      </ul>
                    </p>
-                   <a href="#" class="btn btn-outline-primary">check out</a>
+                   <a href="https://www.accuweather.com/en/in/delhi/202396/morning-weather-forecast/202396" class="btn btn-outline-primary">check out</a>
                  </div>
                   </div>
           
@@ -134,7 +179,7 @@ body{
         <div class=" col">
             <div class="container text-center">
                 <div class="card border-primary mb-3" style="width: 18rem;">
-                 <img src="https://source.unsplash.com/500x400?noon" class="card-img-top img-fluid" alt="...">
+                 <img src="noon.jpg" class="card-img-top img-fluid" alt="...">
                  <div class="card-body">
                    <h5 class="card-title">Mid Day</h5>
                    <p class="card-text">
@@ -142,7 +187,7 @@ body{
                         “Life is magic. The beauty of life is the next second. I wish every second will be beautiful in your life this afternoon, Good Afternoon"
                      </ul>
                    </p>
-                   <a href="#" class="btn btn-outline-primary">check out</a>
+                   <a href="https://www.accuweather.com/en/in/delhi/202396/afternoon-weather-forecast/202396" class="btn btn-outline-primary">check out</a>
                  </div>
                   </div>
           
@@ -152,7 +197,7 @@ body{
         <div class="col">
             <div class="container text-center  ">
                 <div class="card border-primary mb-3" style="width: 18rem;">
-                 <img src="https://source.unsplash.com/500x400?night" class="card-img-top img-fluid" alt="...">
+                 <img src="nignt.jpg" class="card-img-top img-fluid" alt="...">
                  <div class="card-body">
                    <h5 class="card-title">Night</h5>
                    <p class="card-text">
@@ -161,7 +206,7 @@ body{
                       
                      </ul>
                    </p>
-                   <a href="#" class="btn btn-outline-primary">check out</a>
+                   <a href="https://www.accuweather.com/en/in/delhi/202396/overnight-weather-forecast/202396" class="btn btn-outline-primary">check out</a>
                  </div>
                   </div>
           
@@ -170,6 +215,7 @@ body{
       </div>
       </div>
       <!-- cards ends here -->
+<!-- ///////////////////////////////////////////////////////////////////////////////////////////////////////-->
 
       <!-- footer  -->
       <br><br><br><br>
@@ -194,9 +240,9 @@ body{
           <div class="col-6 col-lg-3 offset-lg-1 mb-3">
             <h5>Links</h5>
             <ul class="list-unstyled">
-              <li class="mb-2"><a href="#">Home</a></li>
-              <li class="mb-2"><a href="#">links</a></li>
-              <li class="mb-2"><a href="#">socialmedia</a></li>
+              <li class="mb-2"><a href="index.html">Home</a></li>
+              <li class="mb-2 disabled"><a href="#">links</a></li>
+              <li class="mb-2 disabled"><a href="#">socialmedia</a></li>
       
             </ul>
           </div>
@@ -211,15 +257,15 @@ body{
           <div class="col-6 col-lg-2 mb-3">
             <h5>Community</h5>
             <ul class="list-unstyled">
-              <li class="mb-2"><a href="#">Issues</a></li>
-              <li class="mb-2"><a href="#">Discussions</a></li>
-              <li class="mb-2"><a href="#">Stack Overflow</a></li>
+              <li class="mb-2 disabled "><a href="#">Issues</a></li>
+              <li class="mb-2 disabled"><a href="#">Discussions</a></li>
+              <li class="mb-2 disabled"><a href="#">Stack Overflow</a></li>
             </ul>
 
           
         </div>
       </div>
       </div>
-      
+      <script src="script.js"></script>
     </body>
     </html>
