@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Issues and Discussions</title>
+    <style>
+                body {
+                margin: 0;
+            background-color: darkgray;
+                    margin-right: 10%; }
+
+                .section-title {
+                    font-size: 36px;
+                    font-size: 2.5714285714em;
+                    font-weight: 300;
+                    color: white; }
+                    .contact-form [class*="col"] {
+                padding: 0 5px; }
+                .contact-form .row {
+                margin: 0 -5px; }
+                .contact-form input:not([type="submit"]), .contact-form textarea {
+                width: 30%;
+                padding: 15px;
+                margin-bottom: 10px;
+                color: white;
+                border: 2px solid #393c48;
+                background: transparent; }
+                .contact-form input:not([type="submit"]):hover, .contact-form input:not([type="submit"]):focus, .contact-form textarea:hover, .contact-form textarea:focus {
+                    border-color: #009ad8; }
+                .contact-form textarea {
+                min-height: 60px; }
+                .contact-form .text-right {
+                text-align: right; }
+                col-md-6{
+                position: relative;
+                min-height: 1px;
+                padding-left: 15px;
+                padding-right: 15px; }
+               #submit{
+                    width: 200px;
+                    height: 50px;
+                    border: none;
+                    outline: none;
+                    background: #2f2f2f;
+                    color: #fff;
+                    font-size: 22px;
+                    border-radius: 40px;
+                    text-align: center;
+                    box-shadow: 0 6px 20px -5px rgba(0,0,0,0.4);
+                    position: relative;
+                    overflow: hidden;
+                    cursor: pointer;
+                }
+   
+    </style>
+    <script>
+        let feedback=document.getElementById("feedback")
+        feedback.addEventListener("click" , SubmitEvent);
+    </script>
+</head>
+<body><div class="col-md-6 col-md-offset-1" align="center">
+    <h2 class="section-title"><b>Issues and Discussions</b></h2>
+    
+    <form action="#" class="contact-form">
+        <div class="row">
+            <div class="col-md-6"><input type="text" placeholder="Your name..."></div>
+            <div class="col-md-6"><input type="text" placeholder="Email Addresss..."></div>
+        </div>
+        <div class="row">
+            <div class="col-md-6"><input type="text" placeholder="Company name..."></div>
+            <div class="col-md-6"><input type="text" placeholder="Website..."></div>
+        </div>
+        <textarea name="" placeholder="Message..."></textarea>
+        <div class="text-right">
+            <input type="submit" placeholder="Send message" id="submit">
+        </div>
+    </form>
+</div>
+</div>
+</div>
+</body>
+</html>
